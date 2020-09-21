@@ -44,17 +44,14 @@ class segmenttree {
   
             //Información de Izquierda
             if(nodeI->nIzq->r<iz || der < nodeI->nIzq->l){                                                  //Primera presmisa NO INTERSECAN
-//                cout<<"Entra IZ.1!!: ["<<nodeI->nIzq->l<<","<<nodeI->nIzq->r<<"-->"<<iz<<","<<der<<"]\n";
                 maximoIzq=-99999;
             }
 
             if(iz <= nodeI->nIzq->l && der >= nodeI->nIzq->r ){                                             //Tercera premisa LO CONTIENE TOTAL
-  //          cout<<"Entra IZ.3!!: ["<<nodeI->nIzq->l<<","<<nodeI->nIzq->r<<"-->"<<iz<<","<<der<<"]\n";
                 maximoIzq = nodeI->nIzq->val;
                 
             }else{                                                                                         //Segunda premisa PARCIALMENTE
                     if((iz > nodeI->nIzq->l && iz <= nodeI->nIzq->r && der > nodeI->nIzq->r) || (iz < nodeI->nIzq->l && der >= nodeI->nIzq->l && der <= nodeI->nIzq->r) ){ 
-    //                     cout<<"Entra IZ.2!!: ["<<nodeI->nIzq->l<<","<<nodeI->nIzq->r<<"-->"<<iz<<","<<der<<"]\n";
                         maximoIzq = getMaximo(iz, der, nodeI->nIzq) ;
                     }
             }
@@ -108,7 +105,7 @@ int main()
     
     
     segmenttree * var = new segmenttree(a,id,left, right);
-   cout<<"RPTA:"<< var->getMaximo(1,3, var)<<"\n";
+   cout<<"RPTA:"<< var->getMaximo(0,2, var)<<"\n";
 
 
     return 0; 
